@@ -1,4 +1,8 @@
 #\/bin/bash
+sudo pacman -S zathura nvim rofi kitty waybar thunar tmux
+sudo pacman -S --needed base-devel git && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+cd ..
+yay -S logiops-git
 cp -r ./hypr/ ~/.config/
 cp -r ./Thunar/ ~/.config/
 cp -r ./waybar ~/.config/
