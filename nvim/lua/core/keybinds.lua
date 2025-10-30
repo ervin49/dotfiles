@@ -19,15 +19,7 @@ end
 vim.api.nvim_create_user_command('CompileAndRunJava', compile_and_run_java, {})
 
 
-vim.keymap.set("n", "<leader>tt", function()
-  local themery = require("themery")
-  local currentTheme = themery.getCurrentTheme()
-  if currentTheme and currentTheme.name == "tokyonight" then
-    themery.setThemeByName("gruvbox-material", true)
-  else
-    themery.setThemeByName("tokyonight", true)
-  end
-end, { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>tt', ':Themery<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>i', 'ggVG=<C-O>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>p', ':Oil<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
@@ -43,6 +35,7 @@ keymap('n', '<leader>ff', require('telescope.builtin').find_files, {})
 keymap('n', '<leader>fg', require('telescope.builtin').live_grep, {})
 keymap('n', '<leader>fb', require('telescope.builtin').buffers, {})
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+keymap("n", "<leader>c", "<cmd>NvimTreeFocus<cr>")
 keymap('n', '<leader>fh', require('telescope.builtin').help_tags, {})
 keymap('n', '<leader>fs', require('telescope.builtin').current_buffer_fuzzy_find, {})
 keymap('n', '<leader>fo', require('telescope.builtin').lsp_document_symbols, {})
